@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from model_utils import Choices
-
+from django.contrib.auth.models import User
 
 class RiskLabels(models.Model):
     RiskChoices = Choices('negligible','low','moderate','high','certain')
@@ -18,6 +18,6 @@ class RiskScore(models.Model):
     PhysicalActivity = models.IntegerField(verbose_name='PhysicalActivity Score',default=0)
     SmokeScore = models.IntegerField(verbose_name='Smoke Score',default=0)
     TotalScore = models.IntegerField(verbose_name='TotalScore',default=0)
-    Outcome = models.OneToOneField(RiskLabels,verbose_name='OutCome',default=RiskLabels.RiskGroups)
+    Outcome = models.OneToOneField(RiskLabels,verbose_name='OutCome',default=RiskLabels.RiskChoices.low)
     User = models.OneToOneField(User,verbose_name='Full Name:',default='1')
     LastUpdate = models.DateTimeField(auto_now_add=True)
