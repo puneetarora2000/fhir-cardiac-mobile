@@ -19,3 +19,6 @@ admin.site.register(TypeOfSmoke)
 #admin.site.register(NicotineFood)
 admin.site.register(PhysicalActivity)
 admin.site.register(DietInTakePerDay)
+
+
+
